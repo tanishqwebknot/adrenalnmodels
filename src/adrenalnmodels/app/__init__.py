@@ -8,11 +8,11 @@ from pymongo import MongoClient
 from config import app_config
 from middleware import logger, auth 
 
-db = SQLAlchemy()
 BASE_URL_PREFIX = ''
 bcrypt = Bcrypt()
 client = MongoClient("mongodb+srv://lfsakkus4f:aIfaG5Zv0N2GiZnn@cluster0.petmkcb.mongodb.net/?retryWrites=true&w=majority")
 mongodb = client['test']
+db = SQLAlchemy()
 
 def create_app(config_name):
     app = Flask(__name__, instance_relative_config=True)

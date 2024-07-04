@@ -189,7 +189,7 @@ class MasterBucket(BaseModel):
     __tablename__ = 'master_bucket'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String(255))
-    key = Column(VARCHAR(255))
+    key = Column(VARCHAR(255), unique=True)
     category_type = Column(VARCHAR(255))
 
 
