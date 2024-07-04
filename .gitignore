@@ -1,3 +1,6 @@
 src/adrenalnmodels/__pycache__/
+src/adrenalnmodels/*/__pycache__/
+src/adrenalnmodels/*/*/__pycache__/
+src/adrenalnmodels/migrations/
 src/adrenalnmodels/venv
-
+src/adrenalnmodels/.env
