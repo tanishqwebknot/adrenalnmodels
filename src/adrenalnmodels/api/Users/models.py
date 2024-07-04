@@ -10,7 +10,7 @@ from app.models import BaseModel
 
 class Users(BaseModel):
     __tablename__ = 'users'
-    id = Column(primary_key=True, default=uuid.uuid4)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     first_name = Column(String(50))
     last_name = Column(String(50))
     middle_name = Column(String(50))
@@ -45,7 +45,7 @@ class Membership(BaseModel):
     password_update_on = Column(DateTime)
     last_login_attempts = Column(DateTime)
     login_attempts = Column(Integer)
-    membership_type = Column(Enum('admin', 'general'))
+    membership_type = Column(Enum('admin', 'general', name='membership_type'))
     membership_status = Column(String(50))
     phone_verified = Column(Boolean)
     email_verified = Column(Boolean)

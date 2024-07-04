@@ -16,7 +16,7 @@ class Group(BaseModel):
     city = Column(String(255))
     image = Column(JSON)
     topic = Column(VARCHAR(255))
-    visibility = Column(Enum('all', 'friends', 'custom', 'group_members'))
+    visibility = Column(Enum('all', 'friends', 'custom', 'group_members', name='visibility_type'))
     user_id = Column(UUID(as_uuid=True))
     sport_master_id = Column(UUID(as_uuid=True), ForeignKey('sport_master.id'), nullable=False)
 
