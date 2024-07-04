@@ -1,0 +1,2 @@
+[console_scripts]
+adrenalnmodels = adrenalnmodels.run:main

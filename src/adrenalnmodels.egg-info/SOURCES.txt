@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/adrenalnmodels.egg-info/PKG-INFO
+src/adrenalnmodels.egg-info/SOURCES.txt
+src/adrenalnmodels.egg-info/dependency_links.txt
+src/adrenalnmodels.egg-info/entry_points.txt
+src/adrenalnmodels.egg-info/requires.txt
+src/adrenalnmodels.egg-info/top_level.txt
