@@ -1,11 +1,3 @@
-[project]
-name = "adrenalnmodels"
-version = "1.0.0"
-description = "The central models migrations library for both CMS & Watch API."
-dependencies = [
-    "flask",
-]
-
 [build-system]
-requires = ["flit_core<4"]
-build-backend = "flit_core.buildapi"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
