@@ -1,5 +1,6 @@
 import datetime
-
+import json
+from uuid import UUID
 from sqlalchemy import text
 
 from app import db
@@ -77,4 +78,46 @@ def get_count(sql):
         return one_row[0]
     except Exception as err:
         print("raw_execution", str(err))
+        return None
+
+class UUIDEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, UUID):
+            # if the obj is uuid, we simply return the value of uuid
+            print('in uuidencode', obj)
+            return str(obj)
+        return json.JSONEncoder.default(self, obj)
+
+
+def _query_execution(sql, params=None):
+    """
+    Getting list from SQL query
+    :param sql: sql string
+    :param params (dict): the parameters to pass with the sql query
+    :return: QuerySet list
+    """
+    try:
+        print("INPUT QUERY ===>", sql)
+        response = db.session.execute(
+            text(sql).execution_options(autocommit=True), params=params
+        )
+        fields = response.keys()
+        # offers = db.session.execute(
+        #     text(sql).execution_options(autocommit=True), params=params
+        # )
+        # print("RESPONSE offers ===>", offers)
+        table_fields = []
+        for field in fields:
+            table_fields.append(field)
+        response_data = []
+        for offer in response:
+            response_row = {}
+            count = 0
+            for item in offer:
+                response_row[table_fields[count]] = item
+                count += 1
+            response_data.append(response_row)
+        return response_data
+    except Exception as err:
+        print("query_execution Exception %s", str(err))
         return None
